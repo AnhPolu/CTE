@@ -1,0 +1,15 @@
+C:\CTEMS\CTEMS.Lib\bin\Debug\net6.0\appsettings.json
+C:\CTEMS\CTEMS.Lib\bin\Debug\net6.0\CTEMS.Lib.deps.json
+C:\CTEMS\CTEMS.Lib\bin\Debug\net6.0\CTEMS.Lib.runtimeconfig.json
+C:\CTEMS\CTEMS.Lib\bin\Debug\net6.0\CTEMS.Lib.dll
+C:\CTEMS\CTEMS.Lib\bin\Debug\net6.0\CTEMS.Lib.pdb
+C:\CTEMS\CTEMS.Lib\obj\Debug\net6.0\CTEMS.Lib.csproj.AssemblyReference.cache
+C:\CTEMS\CTEMS.Lib\obj\Debug\net6.0\CTEMS.Lib.GeneratedMSBuildEditorConfig.editorconfig
+C:\CTEMS\CTEMS.Lib\obj\Debug\net6.0\CTEMS.Lib.AssemblyInfoInputs.cache
+C:\CTEMS\CTEMS.Lib\obj\Debug\net6.0\CTEMS.Lib.AssemblyInfo.cs
+C:\CTEMS\CTEMS.Lib\obj\Debug\net6.0\CTEMS.Lib.csproj.CoreCompileInputs.cache
+C:\CTEMS\CTEMS.Lib\obj\Debug\net6.0\CTEMS.Lib.dll
+C:\CTEMS\CTEMS.Lib\obj\Debug\net6.0\refint\CTEMS.Lib.dll
+C:\CTEMS\CTEMS.Lib\obj\Debug\net6.0\CTEMS.Lib.pdb
+C:\CTEMS\CTEMS.Lib\obj\Debug\net6.0\CTEMS.Lib.genruntimeconfig.cache
+C:\CTEMS\CTEMS.Lib\obj\Debug\net6.0\ref\CTEMS.Lib.dll

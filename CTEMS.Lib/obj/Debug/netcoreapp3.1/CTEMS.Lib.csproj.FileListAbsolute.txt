@@ -1,0 +1,14 @@
+C:\CTEMS\CTEMS.Lib\bin\Debug\netcoreapp3.1\appsettings.json
+C:\CTEMS\CTEMS.Lib\bin\Debug\netcoreapp3.1\CTEMS.Lib.deps.json
+C:\CTEMS\CTEMS.Lib\bin\Debug\netcoreapp3.1\CTEMS.Lib.runtimeconfig.json
+C:\CTEMS\CTEMS.Lib\bin\Debug\netcoreapp3.1\CTEMS.Lib.runtimeconfig.dev.json
+C:\CTEMS\CTEMS.Lib\bin\Debug\netcoreapp3.1\CTEMS.Lib.dll
+C:\CTEMS\CTEMS.Lib\bin\Debug\netcoreapp3.1\CTEMS.Lib.pdb
+C:\CTEMS\CTEMS.Lib\obj\Debug\netcoreapp3.1\CTEMS.Lib.AssemblyInfoInputs.cache
+C:\CTEMS\CTEMS.Lib\obj\Debug\netcoreapp3.1\CTEMS.Lib.AssemblyInfo.cs
+C:\CTEMS\CTEMS.Lib\obj\Debug\netcoreapp3.1\CTEMS.Lib.csproj.CoreCompileInputs.cache
+C:\CTEMS\CTEMS.Lib\obj\Debug\netcoreapp3.1\CTEMS.Lib.dll
+C:\CTEMS\CTEMS.Lib\obj\Debug\netcoreapp3.1\CTEMS.Lib.pdb
+C:\CTEMS\CTEMS.Lib\obj\Debug\netcoreapp3.1\CTEMS.Lib.genruntimeconfig.cache
+C:\CTEMS\CTEMS.Lib\obj\Debug\netcoreapp3.1\CTEMS.Lib.GeneratedMSBuildEditorConfig.editorconfig
+C:\CTEMS\CTEMS.Lib\obj\Debug\netcoreapp3.1\CTEMS.Lib.csproj.AssemblyReference.cache

@@ -1,0 +1,14 @@
+C:\CTEMS\CTEMS.Infrastructure\bin\Debug\netcoreapp3.1\appsettings.json
+C:\CTEMS\CTEMS.Infrastructure\bin\Debug\netcoreapp3.1\CTEMS.Infrastructure.deps.json
+C:\CTEMS\CTEMS.Infrastructure\bin\Debug\netcoreapp3.1\CTEMS.Infrastructure.dll
+C:\CTEMS\CTEMS.Infrastructure\bin\Debug\netcoreapp3.1\CTEMS.Infrastructure.pdb
+C:\CTEMS\CTEMS.Infrastructure\bin\Debug\netcoreapp3.1\CTEMS.Lib.dll
+C:\CTEMS\CTEMS.Infrastructure\bin\Debug\netcoreapp3.1\CTEMS.Lib.pdb
+C:\CTEMS\CTEMS.Infrastructure\obj\Debug\netcoreapp3.1\CTEMS.Infrastructure.AssemblyInfoInputs.cache
+C:\CTEMS\CTEMS.Infrastructure\obj\Debug\netcoreapp3.1\CTEMS.Infrastructure.AssemblyInfo.cs
+C:\CTEMS\CTEMS.Infrastructure\obj\Debug\netcoreapp3.1\CTEMS.Infrastructure.csproj.CoreCompileInputs.cache
+C:\CTEMS\CTEMS.Infrastructure\obj\Debug\netcoreapp3.1\CTEMS.Infrastructure.csproj.CopyComplete
+C:\CTEMS\CTEMS.Infrastructure\obj\Debug\netcoreapp3.1\CTEMS.Infrastructure.dll
+C:\CTEMS\CTEMS.Infrastructure\obj\Debug\netcoreapp3.1\CTEMS.Infrastructure.pdb
+C:\CTEMS\CTEMS.Infrastructure\obj\Debug\netcoreapp3.1\CTEMS.Infrastructure.csproj.AssemblyReference.cache
+C:\CTEMS\CTEMS.Infrastructure\obj\Debug\netcoreapp3.1\CTEMS.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
