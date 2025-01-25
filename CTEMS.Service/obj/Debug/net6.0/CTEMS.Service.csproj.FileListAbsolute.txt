@@ -11,10 +11,11 @@ C:\CTEMS\CTEMS.Service\obj\Debug\net6.0\CTEMS.Service.GeneratedMSBuildEditorConf
 C:\CTEMS\CTEMS.Service\obj\Debug\net6.0\CTEMS.Service.AssemblyInfoInputs.cache
 C:\CTEMS\CTEMS.Service\obj\Debug\net6.0\CTEMS.Service.AssemblyInfo.cs
 C:\CTEMS\CTEMS.Service\obj\Debug\net6.0\CTEMS.Service.csproj.CoreCompileInputs.cache
-C:\CTEMS\CTEMS.Service\obj\Debug\net6.0\CTEMS.Service.csproj.CopyComplete
 C:\CTEMS\CTEMS.Service\obj\Debug\net6.0\CTEMS.Service.dll
 C:\CTEMS\CTEMS.Service\obj\Debug\net6.0\refint\CTEMS.Service.dll
 C:\CTEMS\CTEMS.Service\obj\Debug\net6.0\CTEMS.Service.pdb
 C:\CTEMS\CTEMS.Service\obj\Debug\net6.0\ref\CTEMS.Service.dll
 C:\CTEMS\CTEMS.Service\bin\Debug\net6.0\Common.dll
 C:\CTEMS\CTEMS.Service\bin\Debug\net6.0\Common.pdb
+C:\CTEMS\CTEMS.Service\obj\Debug\net6.0\CTEMS.Service.sourcelink.json
+C:\CTEMS\CTEMS.Service\obj\Debug\net6.0\CTEMS.Se.F0C485BF.Up2Date

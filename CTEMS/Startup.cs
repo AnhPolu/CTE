@@ -4,7 +4,6 @@ using CTEMS.Service.Mapping;
 using CTEMS.Service.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,7 +25,6 @@ namespace CTEMS
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-
             services.AddSwaggerGen();
             services.AddSwaggerGen(c =>
             {
@@ -68,6 +66,7 @@ namespace CTEMS
             app.UseAuthorization();
 
             app.UseSwagger();
+
             app.UseSwaggerUI(c => {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Showing API V1");
             });

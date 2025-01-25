@@ -1,0 +1,25 @@
+<form [formGroup]="newLead" class="w-100">
+  <mat-form-field>
+    <input matInput formControlName="name" placeholder="Name">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" formControlName="dob" placeholder="Date of Birth">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="phone" placeholder="Phone">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select formControlName="level" placeholder="Level">
+      <mat-option value="1">1</mat-option>
+      <mat-option value="2">2</mat-option>
+      <mat-option value="3">3</mat-option>
+      <mat-option value="4">4</mat-option>
+      <mat-option value="5">5</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput formControlName="note" placeholder="Note"></textarea>
+  </mat-form-field>
+</form>

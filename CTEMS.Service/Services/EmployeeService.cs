@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CTEMS.Service.Services
@@ -13,46 +14,49 @@ namespace CTEMS.Service.Services
     public interface IEmployeeService
     {
         List<EmployeeVM> GetAll();
-        EmployeeVM GetById(int id);
+        Task<EmployeeVM> GetById(int id);
         Task<EmployeeVM> Add(EmployeeVM employee);
-        EmployeeVM Update(EmployeeVM employee);
-        void Delete(int id);
+        Task<EmployeeVM> Update(EmployeeVM employee);
+        Task<bool> Delete(int id);
     }
     public class EmployeeService : IEmployeeService
     {
-        private readonly IUnitOfWork unitOfWork;
-        private readonly IGenericRepository<Employee> employeeRepository;
-        private readonly IMapper mapper;
-        public EmployeeService(IUnitOfWork _unitOfWork, IMapper _mapper)
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IGenericRepository<Employee> _employeeRepository;
+        private readonly IUserService _userService;
+        private readonly IMapper _mapper;
+        static Regex ConvertToUnsign_rg = null;
+        public EmployeeService(IUnitOfWork unitOfWork, IMapper mapper, IUserService userService)
         {
-            unitOfWork = _unitOfWork;
-            employeeRepository = unitOfWork.Repository<Employee>();
-            mapper = _mapper;
+            _unitOfWork = unitOfWork;
+            _employeeRepository = unitOfWork.Repository<Employee>();
+            _mapper = mapper;
+            _userService = userService;
         }
 
         public List<EmployeeVM> GetAll()
         {
             try
             {
-                IQueryable employees = employeeRepository.GetAll();
-                return mapper.Map<List<EmployeeVM>>(employees);
+                IQueryable employees = _employeeRepository.GetAll();
+                return _mapper.Map<List<EmployeeVM>>(employees);
             }
-            catch(Exception ex)
+            catch(Exception)
             {
-                throw ex;
+                throw;
             } 
         }
 
-        public EmployeeVM GetById(int id)
+        public async Task<EmployeeVM> GetById(int id)
         {
             try
             {
-                Employee employee = employeeRepository.GetById(id);
-                return mapper.Map<EmployeeVM>(employee);
+                Employee employee = await _employeeRepository.GetByIdAsync(id);
+                return _mapper.Map<EmployeeVM>(employee);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -60,22 +64,35 @@ namespace CTEMS.Service.Services
         {
             try
             {
-                if (await this.employeeRepository.ExistAsync(x => x.Email == employee.Email && x.IdentityNumber == employee.IdentityNumber))
+                if (await _employeeRepository.ExistAsync(x => x.Email == employee.Email && x.IdentityNumber == employee.IdentityNumber))
                 {
-                    Employee employeeEntity = mapper.Map<Employee>(employee);
-                    await this.employeeRepository.AddAsync(employeeEntity);
-                    await unitOfWork.CommitAsync();
+                    Employee employeeEntity = _mapper.Map<Employee>(employee);
+                    await _employeeRepository.AddAsync(employeeEntity);
 
-                    return mapper.Map<EmployeeVM>(employeeEntity);
+                    string uniqueUserName = await GenerateUniqueUserName(employee.FirstName, employee.LastName);
+                    UserVM userVM = new UserVM();
+                    userVM.Email = employee.Email;
+                    userVM.UserName = uniqueUserName;
+                    userVM.RequiredToChangePass = true;
+                    userVM.EmployeeId = employeeEntity.Id;
+                    userVM.Salt = 1234;
+                    userVM.Password = "12345678x@X";
+                    userVM.DefaultResetPassword = "12345678x@X";
+                    await _userService.Add(userVM);
+
+                    await _unitOfWork.CommitAsync();
+
+                    return _mapper.Map<EmployeeVM>(employeeEntity);
                 }
                 else
                 {
+                    await _unitOfWork.RollbackAsync();
                     throw new Exception("Employee already exist"); 
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                await unitOfWork.RollbackAsync();
+                await _unitOfWork.RollbackAsync();
                 throw;
             }
         }
@@ -84,47 +101,76 @@ namespace CTEMS.Service.Services
         {
             try
             {
-                if (await this.employeeRepository.ExistAsync(x => x.Id == employee.Id))
+                if (await _employeeRepository.ExistAsync(x => x.Id == employee.Id))
                 {
-                    Employee employeeEntity = mapper.Map<Employee>(employee);
-                    this.employeeRepository.Update(employeeEntity);
+                    Employee employeeEntity = _mapper.Map<Employee>(employee);
+                    await _employeeRepository.Update(employeeEntity);
 
-                    return mapper.Map<EmployeeVM>(employeeEntity);
+                    return _mapper.Map<EmployeeVM>(employeeEntity);
                 } 
                 else
                 {
                     throw new KeyNotFoundException(employee.Id.ToString());
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
-        public void Delete(int id)
+        public async Task<bool> Delete(int employeeId)
         {
             try
             {
-                Employee employee = this.employeeRepository.GetById(id);
+                Employee employee = await _employeeRepository.GetByIdAsync(employeeId);
                 if (employee != null)
                 {
-                    this.employeeRepository.Delete(employee);
+                    await _employeeRepository.Delete(employee);
+                    await _unitOfWork.CommitAsync();
+                    return true;
                 }
                 else
                 {
-                    throw new KeyNotFoundException(employee.Id.ToString());
+                    await _unitOfWork.RollbackAsync();
+                    throw new Exception("Employee not found");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                await _unitOfWork.RollbackAsync();
+                throw;
             }
         }
 
-        EmployeeVM IEmployeeService.Update(EmployeeVM employee)
+        public async Task<string> GenerateUniqueUserName(string firstName, string lastName)
         {
-            throw new NotImplementedException();
+            firstName = firstName.Trim().ToLowerInvariant().Replace(" ", string.Empty);
+            lastName = lastName.Trim().ToLowerInvariant().Replace(" ", string.Empty);
+
+            firstName = ConvertToUnsign(firstName);
+            lastName = ConvertToUnsign(lastName);
+
+            string uniqueUserName = firstName;
+
+            int counter = 1;
+            while (await _userService.ExistAsync(x => x.UserName == uniqueUserName))
+            {
+                uniqueUserName = $"{firstName}{lastName}{counter}";
+                counter++;
+            }
+
+            return uniqueUserName;
+        }
+
+        public static string ConvertToUnsign(string strInput)
+        {
+            if (ReferenceEquals(ConvertToUnsign_rg, null))
+            {
+                ConvertToUnsign_rg = new Regex("p{IsCombiningDiacriticalMarks}+");
+            }
+            var temp = strInput.Normalize(NormalizationForm.FormD);
+            return ConvertToUnsign_rg.Replace(temp, string.Empty).Replace("đ", "d").Replace("Đ", "D").ToLower();
         }
     }
 }

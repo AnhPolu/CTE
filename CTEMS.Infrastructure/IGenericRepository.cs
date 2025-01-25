@@ -9,6 +9,7 @@ namespace CTEMS.Infrastructure
 {
     public interface IGenericRepository<T> where T : class
     {
+        Task<List<T>> GetAllAsync();
         IQueryable<T> GetAll();
 
         T GetById(int id);
@@ -24,9 +25,9 @@ namespace CTEMS.Infrastructure
 
         Task<T> AddAsync(T entity);
 
-        T Update(T updated);
+        Task<T> Update(T updated);
 
-        void Delete(T t);
+        Task Delete(T t);
 
         int Count();
 

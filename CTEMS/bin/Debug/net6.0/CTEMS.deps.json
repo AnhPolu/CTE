@@ -2566,7 +2566,10 @@
       },
       "Common/1.0.0": {
         "runtime": {
-          "Common.dll": {}
+          "Common.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "CTEMS.Infrastructure/1.0.0": {
@@ -2574,7 +2577,10 @@
           "CTEMS.Lib": "1.0.0"
         },
         "runtime": {
-          "CTEMS.Infrastructure.dll": {}
+          "CTEMS.Infrastructure.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "CTEMS.Lib/1.0.0": {
@@ -2590,7 +2596,10 @@
           "System.IdentityModel.Tokens.Jwt": "6.22.1"
         },
         "runtime": {
-          "CTEMS.Lib.dll": {}
+          "CTEMS.Lib.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "CTEMS.Service/1.0.0": {
@@ -2600,7 +2609,10 @@
           "Common": "1.0.0"
         },
         "runtime": {
-          "CTEMS.Service.dll": {}
+          "CTEMS.Service.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

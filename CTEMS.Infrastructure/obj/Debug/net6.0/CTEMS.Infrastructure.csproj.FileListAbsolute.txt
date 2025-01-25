@@ -9,8 +9,9 @@ C:\CTEMS\CTEMS.Infrastructure\obj\Debug\net6.0\CTEMS.Infrastructure.GeneratedMSB
 C:\CTEMS\CTEMS.Infrastructure\obj\Debug\net6.0\CTEMS.Infrastructure.AssemblyInfoInputs.cache
 C:\CTEMS\CTEMS.Infrastructure\obj\Debug\net6.0\CTEMS.Infrastructure.AssemblyInfo.cs
 C:\CTEMS\CTEMS.Infrastructure\obj\Debug\net6.0\CTEMS.Infrastructure.csproj.CoreCompileInputs.cache
-C:\CTEMS\CTEMS.Infrastructure\obj\Debug\net6.0\CTEMS.Infrastructure.csproj.CopyComplete
 C:\CTEMS\CTEMS.Infrastructure\obj\Debug\net6.0\CTEMS.Infrastructure.dll
 C:\CTEMS\CTEMS.Infrastructure\obj\Debug\net6.0\refint\CTEMS.Infrastructure.dll
 C:\CTEMS\CTEMS.Infrastructure\obj\Debug\net6.0\CTEMS.Infrastructure.pdb
 C:\CTEMS\CTEMS.Infrastructure\obj\Debug\net6.0\ref\CTEMS.Infrastructure.dll
+C:\CTEMS\CTEMS.Infrastructure\obj\Debug\net6.0\CTEMS.Infrastructure.sourcelink.json
+C:\CTEMS\CTEMS.Infrastructure\obj\Debug\net6.0\CTEMS.In.EAB3DC16.Up2Date

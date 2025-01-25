@@ -8,6 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq.Expressions;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
@@ -17,11 +18,12 @@ namespace CTEMS.Service.Services
 {
     public interface IUserService
     {
-        UserVM Add(UserVM user);
-        UserVM Update(UserVM user);
+        Task<UserVM> Add(UserVM user);
+        Task<UserVM> Update(UserVM user);
         void Delete(int id);
         AuthenticateResponse Authenticate(AuthenticateRequest model);
         User GetById(int id);
+        Task<bool> ExistAsync(Expression<Func<User, bool>> expression);
     }
 
     public class UserService : IUserService
@@ -43,55 +45,44 @@ namespace CTEMS.Service.Services
         {
             return _userRepository.GetById(id);
         }
-
-        public UserVM Add(UserVM user)
+        public async Task<UserVM> Add(UserVM user)
         {
             try
             {
-                if (!this._userRepository.Exist(x => x.UserName == user.UserName))
+                if (!(await _userRepository.ExistAsync(x => x.UserName == user.UserName)))
                 {
                     User userEntity = _mapper.Map<User>(user);
-                    this._userRepository.Add(userEntity);
-                    this._unitOfWork.Commit();
+                    userEntity.Password = MD5Hash(user.Password);
+                    await _userRepository.AddAsync(userEntity);
+                    await _unitOfWork.CommitAsync();
 
                     return _mapper.Map<UserVM>(userEntity);
                 }
                 else
                 {
+                    await _unitOfWork.RollbackAsync();
                     throw new Exception("User already exist");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                await _unitOfWork.RollbackAsync();
+                throw;
             }
         }
-        public UserVM Update(UserVM user)
+        public async Task<UserVM> Update(UserVM user)
         {
-            try
+            if (!await _userRepository.ExistAsync(x => x.Id == user.Id))
             {
-                if (this._userRepository.Exist(x => x.Id == user.Id))
-                {
-                    User userEntity = _mapper.Map<User>(user);
-                    this._userRepository.Update(userEntity);
-                    this._unitOfWork.Commit();
+                throw new KeyNotFoundException(user.Id.ToString());
+            }
 
-                    return _mapper.Map<UserVM>(userEntity);
-                }
-                else
-                {
-                    throw new KeyNotFoundException(user.Id.ToString());
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            var userEntity = _mapper.Map<User>(user);
+            await _userRepository.Update(userEntity);
+            await _unitOfWork.CommitAsync();
+
+            return _mapper.Map<UserVM>(userEntity);
         }
-
-
-
-
         public void Delete(int id)
         {
             try
@@ -113,7 +104,10 @@ namespace CTEMS.Service.Services
             }
         }
 
-
+        public async Task<bool> ExistAsync(Expression<Func<User, bool>> expression)
+        {
+            return await _userRepository.ExistAsync(expression);
+        }
 
         public static string MD5Hash(string input)
         {

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CTEMS.Lib")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c3cffab2c2f7b022caeb1812b4f4090361f8097")]
 [assembly: System.Reflection.AssemblyProductAttribute("CTEMS.Lib")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CTEMS.Lib")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

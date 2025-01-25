@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "M/6PyFXt0vOVIujDB+8R1V9DEKHOYT+ylc8xXYzoRBY=",
+  "Hash": "lEj7p4f/+9NgS/4JM8tTp1+z2cI9KQXZaVa1VifkT6g=",
   "Source": "CTEMS",
   "BasePath": "_content/CTEMS",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

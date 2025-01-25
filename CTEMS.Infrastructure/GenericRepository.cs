@@ -19,8 +19,12 @@ namespace CTEMS.Infrastructure
 			_context = context;
 			_currentUserService = currentUserService;
 		}
+        public async Task<List<T>> GetAllAsync()
+        {
+            return await _context.Set<T>().ToListAsync();
+        }
 
-		public IQueryable<T> GetAll()
+        public IQueryable<T> GetAll()
 		{
 			return _context.Set<T>();
 		}
@@ -76,7 +80,7 @@ namespace CTEMS.Infrastructure
 			return entity;
 		}
 
-		public T Update(T entity)
+		public async Task<T> Update(T entity)
 		{
 			if (entity == null)
 			{
@@ -92,13 +96,16 @@ namespace CTEMS.Infrastructure
 			_context.Set<T>().Attach(entity);
 			_context.Entry(entity).State = EntityState.Modified;
 
-			return entity;
+            await _context.SaveChangesAsync();
+
+            return entity;
 		}
 
-		public void Delete(T t)
+		public async Task Delete(T t)
 		{
 			_context.Set<T>().Remove(t);
-		}
+            await _context.SaveChangesAsync();
+        }
 
 		public int Count()
 		{

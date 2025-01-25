@@ -123,7 +123,6 @@ C:\CTEMS\CTEMS\obj\Debug\net6.0\staticwebassets.pack.json
 C:\CTEMS\CTEMS\obj\Debug\net6.0\staticwebassets.build.json
 C:\CTEMS\CTEMS\obj\Debug\net6.0\staticwebassets.development.json
 C:\CTEMS\CTEMS\obj\Debug\net6.0\scopedcss\bundle\CTEMS.styles.css
-C:\CTEMS\CTEMS\obj\Debug\net6.0\CTEMS.csproj.CopyComplete
 C:\CTEMS\CTEMS\obj\Debug\net6.0\CTEMS.dll
 C:\CTEMS\CTEMS\obj\Debug\net6.0\refint\CTEMS.dll
 C:\CTEMS\CTEMS\obj\Debug\net6.0\CTEMS.pdb
@@ -259,3 +258,9 @@ C:\CTEMS\CTEMS\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptogr
 C:\CTEMS\CTEMS\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\CTEMS\CTEMS\bin\Debug\net6.0\Common.dll
 C:\CTEMS\CTEMS\bin\Debug\net6.0\Common.pdb
+C:\CTEMS\CTEMS\bin\Debug\net6.0\CTEMS.staticwebassets.endpoints.json
+C:\CTEMS\CTEMS\obj\Debug\net6.0\CTEMS.sourcelink.json
+C:\CTEMS\CTEMS\obj\Debug\net6.0\staticwebassets.build.endpoints.json
+C:\CTEMS\CTEMS\obj\Debug\net6.0\staticwebassets\msbuild.CTEMS.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\CTEMS\CTEMS\obj\Debug\net6.0\staticwebassets.upToDateCheck.txt
+C:\CTEMS\CTEMS\obj\Debug\net6.0\CTEMS.csproj.Up2Date

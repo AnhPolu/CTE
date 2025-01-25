@@ -21,7 +21,7 @@ namespace CTEMS.Lib.Model
         public string Address { get; set; }
         public string Email { get; set; }
         public DateTime? SignOnDate { get; set; }
-        public long UserId { get; set; }
+        public long? UserId { get; set; }
         public virtual User User { get; set; }
     }
 }

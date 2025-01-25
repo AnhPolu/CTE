@@ -15,9 +15,9 @@ import { SnackbarComponent } from './components/snackbar/snackbar.component';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { TooltipsComponent } from './components/tooltips/tooltips.component';
-import { ProductComponent } from './dashboard/dashboard-components/product/product.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { FullComponent } from './layouts/full/full.component';
+import { ProductComponent } from './pages/dashboard/dashboard-components/product/product.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -42,6 +42,8 @@ const routes: Routes = [
       {path:"slide-toggle", component:SlideToggleComponent},
       {path:"tooltip", component:TooltipsComponent},
       {path:"button", component:ButtonsComponent},
+      { path: 'settings', loadChildren: () => import('./pages/setting/setting.module').then(m => m.SettingModule) },
+      { path: 'leads', loadChildren: () => import('./pages/lead/lead.module').then(m => m.LeadModule) },
     ]
   },
 

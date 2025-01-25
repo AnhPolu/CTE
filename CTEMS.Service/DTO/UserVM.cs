@@ -14,6 +14,7 @@ namespace CTEMS.Service.DTO
         public string AccessRights { get; set; }
         public bool RequiredToChangePass { get; set; }
         public string DefaultResetPassword { get; set; }
+        public string Password { set; get; }
         public long EmployeeId { get; set; }
     }
 }

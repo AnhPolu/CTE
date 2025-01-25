@@ -12,7 +12,8 @@ namespace CTEMS.Service.Mapping
         public AutoMapperProfile()
         {
             CreateMap<Employee, EmployeeVM>().ReverseMap();
-            CreateMap<User, UserVM>().ReverseMap();
+            CreateMap<User, UserVM>().
+                ForMember(dest => dest.Password, opt => opt.Ignore()).ReverseMap();
 
         }
     }

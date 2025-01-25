@@ -26,7 +26,7 @@ namespace CTEMS.Controllers
             {
                 return Ok(_userService.Add(userRM));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, "Fail to create user");
             }
@@ -41,7 +41,7 @@ namespace CTEMS.Controllers
                 return Ok( _userService.Update(userRM));
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, "Fail to update user");
             }
