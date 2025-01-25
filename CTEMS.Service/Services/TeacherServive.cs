@@ -56,6 +56,7 @@ namespace CTEMS.Service.Services
                 await _unitOfWork.CommitAsync();
 
                 // Map the Teacher entity back to TeacherVM and return
+
                 return _mapper.Map<TeacherVM>(teacherEntity);
             }
             catch (Exception)
