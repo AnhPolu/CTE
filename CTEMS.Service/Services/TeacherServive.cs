@@ -10,7 +10,6 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-
 namespace CTEMS.Service.Services
 {
     public interface ITeacherServive
@@ -91,6 +90,8 @@ namespace CTEMS.Service.Services
                 throw;
             }
         }
+        
+        
 
         /// <summary>
         /// Retrieves a list of all teachers in the system.

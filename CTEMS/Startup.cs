@@ -9,6 +9,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.OpenApi;
+using NSwag.AspNetCore;
 
 namespace CTEMS
 {
@@ -25,17 +27,7 @@ namespace CTEMS
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSwaggerGen();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo
-                {
-                    Version = "v1",
-                    Title = "Implement Swagger UI",
-                    Description = "A simple example to Implement Swagger UI",
-                });
-            });
-
+            services.AddOpenApi();
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
@@ -63,13 +55,17 @@ namespace CTEMS
 
             app.UseRouting();
 
-            app.UseAuthorization();
-
-            app.UseSwagger();
-
-            app.UseSwaggerUI(c => {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Showing API V1");
+            app.UseOpenApi(options =>
+            {
+                options.PostProcess = (document, _) =>
+                {
+                    document.Info.Title = "CTEMS API";
+                    document.Info.Version = "v1";
+                    document.Info.Description = "CTEMS API";
+                };
             });
+
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

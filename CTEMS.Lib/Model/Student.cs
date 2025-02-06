@@ -7,16 +7,16 @@ using System.Collections.Generic;
 
 namespace CTEMS.Lib.Model
 {
-    public partial class CourseCandidate : AuditEntity
+    public partial class Student : AuditEntity
     {
-        public CourseCandidate()
+        public Student()
         {
         }
         public long CourseId { get; set; }
         public virtual Course Course { get; set; }
         public long CandidateId { get; set; }
         public virtual Candidate Candidate { get; set; }
-        public long FinalTestId { get; set; }
+        public long? FinalTestId { get; set; }
         public virtual FinalTest FinalTest { get; set; }
     }
 }

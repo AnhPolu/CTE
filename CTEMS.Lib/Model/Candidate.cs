@@ -12,7 +12,7 @@ namespace CTEMS.Lib.Model
         public Candidate()
         {
             PlacementTests = new HashSet<PlacementTest>();
-            CourseCandidates = new HashSet<CourseCandidate>();
+            CourseCandidates = new HashSet<Student>();
         }
         public string Name { get; set; }
         public DateTime? Dob { get; set; }
@@ -28,6 +28,6 @@ namespace CTEMS.Lib.Model
 
         public virtual ICollection<PlacementTest> PlacementTests { get; set; }
 
-        public virtual ICollection<CourseCandidate> CourseCandidates { get; set; }
+        public virtual ICollection<Student> CourseCandidates { get; set; }
     }
 }

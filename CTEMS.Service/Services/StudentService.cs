@@ -5,17 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CTEMS.Service.Services
+namespace CTEMS.Service.Services;
+
+public interface IStudentService
 {
-    public interface IStudentService
-    {
-        List<EmployeeVM> GetAll();
-        EmployeeVM GetById(int id);
-        Task<EmployeeVM> Add(EmployeeVM employee);
-        EmployeeVM Update(EmployeeVM employee);
-        void Delete(int id);
-    }
-    public class StudentService
-    {
-    }
+    Task<List<StudentVM>> GetAll();
+    Task<StudentVM> GetById(int id);
+    Task<StudentVM> Add(StudentVM teacher);
+    Task<StudentVM> Update(StudentVM teacher);
+    Task Delete(int id);
 }
+public class StudentService 
+{
+
+}
+

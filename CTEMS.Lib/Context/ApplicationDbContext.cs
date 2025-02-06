@@ -24,7 +24,7 @@ namespace CTEMS.Lib.Context
         public DbSet<Level> Levels { get; set; }
         public DbSet<PlacementTest> PlacementTests { get; set; }
         public DbSet<Role> Roles { get; set; }
-        public DbSet<CourseCandidate> CourseCandidates { get; set; }
+        public DbSet<Student> CourseCandidates { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
@@ -168,21 +168,21 @@ namespace CTEMS.Lib.Context
             .HasForeignKey(r => r.RoleId);
 
             //Student In Course
-            builder.Entity<CourseCandidate>().HasKey(sc => sc.Id);
-            builder.Entity<CourseCandidate>()
+            builder.Entity<Student>().HasKey(sc => sc.Id);
+            builder.Entity<Student>()
             .HasOne(s => s.Candidate)
             .WithMany(c => c.CourseCandidates)
             .HasForeignKey(s => s.CandidateId);
 
-            builder.Entity<CourseCandidate>()
+            builder.Entity<Student>()
             .HasOne(s => s.Course)
             .WithMany(c => c.CourseCandidates)
             .HasForeignKey(s => s.CourseId);
 
-            builder.Entity<CourseCandidate>()
+            builder.Entity<Student>()
             .HasOne(s => s.FinalTest)
             .WithOne()
-            .HasForeignKey<CourseCandidate>(s => s.FinalTestId);
+            .HasForeignKey<Student>(s => s.FinalTestId);
 
             // Teacher
             builder.Entity<Teacher>().HasKey(sc => sc.Id);

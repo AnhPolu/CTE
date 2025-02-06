@@ -87,20 +87,21 @@ namespace CTEMS.Service.Services
         {
             try
             {
-                User user = this._userRepository.GetById(id);
+                User user = _userRepository.GetById(id);
                 if (user != null)
                 {
-                    this._userRepository.Delete(user);
-                    this._unitOfWork.Commit();
+                    _userRepository.Delete(user);
+                    _unitOfWork.Commit();
                 }
                 else
                 {
                     throw new KeyNotFoundException(user.Id.ToString());
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                _unitOfWork.Rollback();
+                throw;
             }
         }
 

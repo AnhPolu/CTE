@@ -13,7 +13,7 @@ namespace CTEMS.Lib.Model
         public Course()
         {
             Lessons = new HashSet<Lesson>();
-            CourseCandidates = new HashSet<CourseCandidate>();
+            CourseCandidates = new HashSet<Student>();
             CourseTeachers = new HashSet<CourseTeacher>();
         }
         public string Name { get; set; }
@@ -25,6 +25,6 @@ namespace CTEMS.Lib.Model
         public virtual Level Level { get; set; }
         public virtual ICollection<CourseTeacher> CourseTeachers { get; set; }
         public virtual ICollection<Lesson> Lessons { get; set; }
-        public virtual ICollection<CourseCandidate> CourseCandidates { get; set; }
+        public virtual ICollection<Student> CourseCandidates { get; set; }
     }
 }

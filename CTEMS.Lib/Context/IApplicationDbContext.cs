@@ -17,7 +17,7 @@ namespace CTEMS.Lib.Context
         public  DbSet<LessonStudent> LessonStudents { get; set; }
         public  DbSet<Level> Levels { get; set; }
         public  DbSet<PlacementTest> PlacementTests { get; set; }
-        public DbSet<CourseCandidate> CourseCandidates { get; set; }
+        public DbSet<Student> CourseCandidates { get; set; }
         public  DbSet<Teacher> Teachers { get; set; }
         public int Save();
         public Task<int> SaveChangesAsync();
